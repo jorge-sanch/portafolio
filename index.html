@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jorge Sanchez | Java Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="#inicio">&lt;JS /&gt;</a>
+                </div>
+
+                <nav class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#sobremi">Sobre mí</a>
+                    <a href="#habilidades">Habilidades</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="power-btn" title="Activar modo Cyberpunk">
+                        <span class="power-icon"></span>
+                    </button>
+                    <a href="assests/JorgeLuisSanchezJimenez_CV.pdf" class="btn btn-primary" download>Descargar CV</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="inicio" class="hero">
+                <div class="container hero-content">
+                    <h1>Hola, soy <span class="highlight">Jorge Sanchez</span></h1>
+                    <h2>Java Full Stack Developer</h2>
+                    <p class="tagline">
+                        “Desarrollador enfocado en crear soluciones escalables, eficientes
+                        y orientadas a negocio.”
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+                        <a href="assests/JorgeLuisSanchezJimenez_CV.pdf" class="btn btn-outline" download>Descargar CV</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sobremi" class="about section-padding">
+                <div class="container">
+                    <h2 class="section-title">Sobre mí</h2>
+                    <div class="about-card card">
+                        <p>
+                            Desarrollador <strong>Java Full Stack</strong> con experiencia en el ciclo completo de
+                            desarrollo de software y un fuerte enfoque en la creación de soluciones empresariales
+                            escalables. Me especializo en el desarrollo backend con <strong>Java y Spring Boot</strong>,
+                            y en en el desarrollo de fronten con <strong>HTML5, CSS3 y JavaScript</strong>.
+                        </p>
+                        <p>
+                            Mi experiencia previa en análisis de requerimientos, automatización de procesos y definición
+                            de soluciones técnicas me permite abordar los desafíos desde una perspectiva integral,
+                            comprendiendo tanto las necesidades del negocio como las mejores prácticas tecnológicas.
+                            Disfruto colaborar en equipos ágiles, aportando comunicación clara, adaptabilidad y
+                            compromiso con la calidad en cada etapa del desarrollo.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="habilidades" class="skills section-padding">
+                <div class="container">
+                    <h2 class="section-title">Habilidades Técnicas</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category card">
+                            <h3>Backend</h3>
+                            <ul class="skill-list">
+                                <li>Java</li>
+                                <li>Spring Boot</li>
+                                <li>APIs REST</li>
+                                <li>JPA</li>
+                                <li>Gradle</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category card">
+                            <h3>Frontend</h3>
+                            <ul class="skill-list">
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>JavaScript</li>
+                                <li>Bootstrap</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category card">
+                            <h3>Bases de Datos</h3>
+                            <ul class="skill-list">
+                                <li>MySQL</li>
+                                <li>SupaBase</li>
+                            </ul>
+                        </div>
+
+                        <div class="skill-category card">
+                            <h3>Herramientas</h3>
+                            <ul class="skill-list">
+                                <li>Git & GitHub</li>
+                                <li>IntelliJ IDEA</li>
+                                <li>Postman</li>
+                                <li>Figma</li>
+                                <li>Jira</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="proyectos" class="projects section-padding">
+                <div class="container">
+                    <h2 class="section-title">Proyectos</h2>
+                    <div class="projects-grid">
+                        <article class="project-card card">
+                            <span class="project-title">Vittalium</span>
+                            <div class="project-image-placeholder vittalium">
+                            </div>
+                            <div class="project-info">
+                                <h3>E-comerce de suplementos alimenticios</h3>
+                                <p>
+                                    Proyecto full stack desarrollado con Java, Spring boot, HTML, CSS y JavaScript.
+                                <div class="project-actions">
+                                    <a href="./assests/Vittalium/index.html" target="_blank" class="btn btn-sm btn-outline ">Ver demo</a>
+                                    <a href="https://github.com/DanielPlata25/Vitalium" target="_blank" class="btn btn-sm btn-primary">Ver código</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card card">
+                            <span class="project-title">Gestor de Inventarios(en proceso)</span>
+                            <div class="project-image-placeholder">
+                            </div>
+                            <div class="project-info">
+                                <h3>E-Commerce Backend</h3>
+                                <p>
+                                    Proyecto en desarrollo – Próximamente. Gestión de
+                                    inventarios con Python y Django
+                                </p>
+                                <div class="project-actions">
+                                    <a href="#" class="btn btn-sm btn-outline">Ver demo</a>
+                                    <a href="#" class="btn btn-sm btn-primary">Ver código</a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="contacto" class="contact section-padding">
+                <div class="container">
+                    <h2 class="section-title">Contacto</h2>
+                    <div class="contact-wrapper">
+                        <div class="contact-info card">
+                            <h3>Conectemos</h3>
+                            <p>
+                                ¿Interesado en colaborar o tienes alguna propuesta? No dudes
+                                en escribirme.
+                            </p>
+                            <div class="social-links">
+                                <p><strong>Email:</strong> sanchez.j.jolu@gmail.com</p>
+                                <p>
+                                    <strong>GitHub:</strong>
+                                    <a href="#" target="_blank">https://github.com/jorge-sanch</a>
+                                </p>
+                                <p>
+                                    <strong>LinkedIn:</strong>
+                                    <a href="#" target="_blank">https://www.linkedin.com/in/ing-jorgesanchez/</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-container card">
+                            <form class="contact-form">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="mensaje">Mensaje</label>
+                                    <textarea id="mensaje" name="mensaje" rows="4" required
+                                        placeholder="¿En qué puedo ayudarte?"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Enviar Mensaje
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-content">
+                <div class="footer-brand">
+                    <h3>Jorge Sanchez</h3>
+                    <p>Java Full Stack Developer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#sobremi">Sobre mí</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="assests/JorgeLuisSanchezJimenez_CV.pdf" download>CV</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Jorge Sanchez. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

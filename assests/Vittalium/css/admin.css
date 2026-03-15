@@ -1,0 +1,69 @@
+
+.text-dark-green { color: var(--dark-green); }
+
+.admin-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    height: 100%;
+}
+
+/**------------ KPI Cards ------------*/
+.kpi-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.kpi-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/**-------------------------ESTADO DE PAGO------------------------ */
+.badge-status {
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.status-completado { background: #d1fae5; color: #065f46; }
+.status-pendiente { background: #fef3c7; color: #92400e; }
+.status-enviado { background: #dbeafe; color: #1e40af; }
+
+/**-------------------------------STOCK---------------------------- */
+
+.progress { height: 8px; border-radius: 10px; background-color: #eee; }
+
+
+/**-------------------------------ACCIONES RAPIDAS---------------------------- */
+.action-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(112, 173, 71, 0.1) !important;
+}
+
+.action-icon {
+    font-size: 1.5rem;
+    color: var(--primary-green);
+}

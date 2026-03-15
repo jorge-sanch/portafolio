@@ -1,0 +1,199 @@
+.title-carro{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    font-family:Helvetica;
+    display: flex;
+
+    padding: 20px 20px;
+    font-size:xx-large;
+    color: rgb(59, 109, 52);
+    padding-left: 20%;
+}
+
+.volver {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 1px;
+    color: rgb(98, 159, 90);
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 20%;
+    margin-top: 5%;
+}
+
+.flecha {
+    width: 30px;          /* tamaño de la flecha */
+    height: 20px;
+}
+
+.volver a {
+    text-decoration: none;        /* Quita el subrayado */
+    color: inherit;               /* Mantiene el color original */
+}
+
+.volver a :hover {
+    text-decoration: none;        /* Quita el subrayado también al pasar el mouse */
+}
+.main-content-carrito{
+    display: grid;
+    grid-template-columns: 1fr 350px;/*productos flexiblres*/
+    gap: 40px;
+    margin: 0 20%;/*ALINEACION CON TITULO*/
+    padding-bottom: 50px;
+}
+
+/* Contenedor principal de la lista */
+#items-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+/* Tarjeta de producto individual */
+.item-carrito {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.item-carrito img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.item-info h3 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Botón Proceder al Pago (Verde de Figma) */
+.btn-proceder {
+    width: 100%;
+    background-color: #629f5a;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.resumen-pago {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    height: fit-content;
+    line-height: 2.5;
+    text-align: left;
+}
+.resumen-pago h3{
+    color:#3b6d34;
+    font-weight:500;
+}
+
+.detalles-pago #envio-val{
+    color:#385934;
+    float: right;
+    
+}
+
+.detalles-pago #subtotal-val {
+    float: right;
+}
+
+.detalles-pago #total-val {
+    float: right;
+    color: #629f5a;
+    text-size-adjust: 10;
+}
+
+
+
+
+/* Responsive: Si la pantalla es chica, se pone uno abajo de otro */
+@media (max-width: 1000px) {
+    .main-content-carrito {
+        grid-template-columns: 1fr;
+        margin: 0 5%;
+    }
+    .title-carro, .volver {
+        margin-left: 5%;
+    }
+}
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-qty {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #3b6d34; /* Tu verde principal */
+    transition: background 0.2s;
+    border-radius: 4px;
+}
+
+.btn-qty:hover {
+    background: #e2e2e2;
+}
+
+.qty-num {
+    padding: 0 12px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+.btn-eliminar {
+    background: none;      /* Quita el fondo gris */
+    border: none;          /* Quita el borde */
+    padding: 0 !important;            /* Quita el espacio interno */
+    cursor: pointer;       /* Hace que aparezca la manita al pasar el mouse */
+    display: flex;         /* Ayuda a centrar el icono */
+    align-items:flex-end;
+    transition: transform 0.2s; /* Opcional: para un efecto suave */
+    width: 20px;
+    position:initial;
+    top: 10px;
+    right: 10px;
+    float: right;
+}
+
+/* Opcional: que el bote se haga un poquito más grande al pasar el mouse */
+.btn-eliminar:hover {
+    transform: scale(1.1);
+}
+
+.precio-unitario{
+    float: left;
+
+}
+.precio-total{
+
+}
+

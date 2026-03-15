@@ -1,0 +1,266 @@
+.text-dark-green {
+    color: var(--dark-green);
+}
+
+.btn-success {
+    background-color: var(--primary-green) !important;
+    border: none;
+}
+
+.btn-outline-primary {
+    color: var(--dark-green);
+    border-color: var(--dark-green);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--dark-green);
+    color: white;
+}
+
+.admin-card {
+    background: white;
+    border-radius: 15px;
+    overflow-x: auto;
+    /* Para scroll horizontal en tablas en móviles */
+}
+
+/* ===== MEJORAS DE RESPONSIVE ===== */
+
+/* Ajustes para móviles pequeños */
+@media (max-width: 576px) {
+
+    /* Header con título y botón */
+    .container .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 15px;
+    }
+
+    .container .d-flex.justify-content-between .d-flex {
+        width: 100%;
+    }
+
+    .container .d-flex.justify-content-between .btn-success {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    /* Ajustar tamaño del ícono en móvil */
+    .me-3[style*="font-size: 2.2rem"] {
+        font-size: 1.8rem !important;
+    }
+
+    /* Título más pequeño en móvil */
+    h2.fw-bold {
+        font-size: 1.5rem;
+    }
+
+    /* Texto descriptivo más pequeño */
+    .text-muted.mb-0 {
+        font-size: 0.9rem;
+    }
+
+    /* Controles de paginación */
+    .d-flex.justify-content-between.align-items-center.mb-3 {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+
+    .pagination-controls {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pagination-controls .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .mx-2 {
+        margin-left: 0.25rem !important;
+        margin-right: 0.25rem !important;
+        font-size: 0.9rem;
+    }
+
+    /* Tabla responsive */
+    .table {
+        font-size: 0.85rem;
+        min-width: 500px;
+        /* Forzar scroll si es necesario */
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+        white-space: normal;
+        /* Permitir wrap del texto */
+        word-break: break-word;
+    }
+
+    /* Botones de acción en tabla */
+    .table .btn-sm {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    .table .btn-sm i {
+        font-size: 0.75rem;
+        margin-right: 2px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    /* Header con título y botón */
+    .container .d-flex.justify-content-between {
+        flex-wrap: wrap;
+    }
+
+    .container .d-flex.justify-content-between .btn-success {
+        margin-left: auto;
+    }
+
+    /* Controles de paginación */
+    .pagination-controls {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Tabla */
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 992px) {
+
+    /* Asegurar que la tabla tenga scroll si es necesario */
+    .admin-card {
+        padding: 1rem !important;
+    }
+
+    /* Ajustar título de la tarjeta */
+    .admin-card h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem !important;
+    }
+
+    /* Modal responsive */
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+}
+
+/* Mejoras generales para todos los dispositivos */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Botón de nueva categoría en móvil */
+.btn-success {
+    white-space: normal;
+    word-break: keep-all;
+}
+
+/* Hover effects solo para dispositivos que soportan hover */
+@media (hover: hover) {
+    .btn-outline-primary:hover {
+        background-color: var(--dark-green);
+        color: white;
+    }
+}
+
+/* Ajustes para el alert informativo */
+.alert {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+    .alert {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+    }
+}
+
+/* Ajustes para el buscador */
+#buscadorCategorias {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+}
+
+@media (max-width: 576px) {
+    #buscadorCategorias {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.75rem;
+    }
+}
+
+
+/* Mejoras para la visualización de la tabla en móvil */
+.table td .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.table td .btn-group .btn {
+    flex: 1 1 auto;
+}
+
+/* Ajustes para el enlace "Volver al Dashboard" */
+.mt-4 a {
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+@media (max-width: 576px) {
+    .mt-4 a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mejoras para los modales en móvil */
+@media (max-width: 576px) {
+    .modal-header {
+        padding: 0.75rem;
+    }
+
+    .modal-header h5 {
+        font-size: 1.1rem;
+    }
+
+    .modal-footer {
+        padding: 0.75rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .modal-footer .btn {
+        width: 100%;
+        margin: 0 !important;
+    }
+
+    .modal-footer .btn+.btn {
+        margin-left: 0 !important;
+    }
+}

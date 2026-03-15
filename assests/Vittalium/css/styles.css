@@ -1,0 +1,1031 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+:root {
+  --dark-green: #2D5A27;
+  --primary-green: #70AD47;
+  --acent-green: #A9D08E;
+  --background: #F2F2F2;
+  --textcolor: #2D3436;
+
+  --font-global: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  font-family: var(--font-global);
+}
+
+/*! Navbar*/
+/* Efecto de iluminación al pasar el cursor */
+.nav-link.btn-outline-custom-green:hover,
+.btn-outline-light:hover {
+    background-color: var(--primary-green) !important;
+    color: white !important;
+    border-color: var(--primary-green) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Para que los botones se vean alineados como querías */
+.navbar-nav .btn-outline-custom-green {
+    margin: 0 5px; /* Espaciado lateral entre botones */
+    border: 1px solid transparent; /* Transparente por defecto */
+    color: white;
+}
+.btn-outline-custom-green {
+    border: 1px solid transparent;
+    color: white;
+}
+.btn-outline-custom-green:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+}
+.bg-custom-green {
+    background-color: #2D5A27; /* Verde oscuro principal */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white !important;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.navbar-brand img {
+  max-width: 30%;  
+  height: auto;    
+    
+}
+
+/* Estilos para los enlaces de navegación */
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 80%;
+}
+
+/* Estilos para los botones de la derecha */
+.btn-outline-light {
+    border-color: white;
+    color: white;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-width: 2px;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #2D5A27;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-light {
+    background-color: white;
+    color: #2D5A27;
+    border: 2px solid white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+    background-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*Para evitar flash al iniciar sesion */
+.admin-only {
+
+    display: none;
+
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        display: inline-block;
+        width: auto;
+        margin: 0.2rem auto;
+    }
+    
+    .d-flex {
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .navbar-brand {
+        justify-content: center;
+
+    }
+}
+
+
+/*! boton hamburguesa responsive*/
+.menu-btn {
+  display: none;
+  background: none;
+  border: none; 
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer
+}
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important; /* Siempre visible en desktop */
+    }
+    
+    .menu-btn {
+        display: none; /* Ocultar botón en desktop */
+    }
+}
+
+@media(max-width: 768px){
+  .menu-btn{
+    display: block;
+    order: 3;
+    display: block;
+  }
+  .cart-login{
+    order: 2;
+    display: none;
+  }
+  .nav-links{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    clip-path: circle(0px at 90% -10%);
+    pointer-events: none;
+    
+  }
+  .nav-links.active {
+    clip-path: circle(1000px at 90% -10%);
+    pointer-events: all;
+    display: flex;
+  }
+
+  .nav-links li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  .nav-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-links li:nth-child(1) {transition-delay: 0.1s;}
+  .nav-links li:nth-child(2) {transition-delay: 0.2s;}
+  .nav-links li:nth-child(3) {transition-delay: 0.3s;}
+  .nav-links li:nth-child(4) {transition-delay: 0.4s;}
+
+}
+
+.cart-icon, .cart-login :hover {
+  display: flex;
+  justify-content: space-between; /* Esto distribuye los iconos según las columnas */
+  gap: 20px; /* El espacio exacto que miden las franjas moradas */
+}
+
+
+/*! Main*/
+.title-nosotros {
+  background: linear-gradient(rgba(45, 90, 39, 0.6),
+      rgba(45, 90, 39, 0.6)),
+    url('https://plus.unsplash.com/premium_photo-1681882190300-6c4de8fc593b?q=80&w=1501&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+  background-size: cover;
+  background-position: 20px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--background);
+}
+
+.title-nosotros h1 {
+  font-size: 50px;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.title-nosotros p {
+  color: var(--acent-green);
+  font-size: 20px;
+}
+
+/* Sección Quiénes Somos */
+.quienes-somos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 80px 10%;
+  align-items: center;
+}
+
+.qs-content h2 {
+  color: var(--dark-green);
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.qs-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  color: var(--textcolor);
+  line-height: 1.8;
+  font-size: 19px;
+}
+
+.qs-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(45, 90, 39, 0.2);
+}
+
+/*Para que Vittalium siempre aparezca en negritas color verde*/
+.brand-name {
+  font-weight: bold;
+  color: var(--dark-green);
+}
+
+.origen-section {
+  background-color: var(--background);
+  padding: 60px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.origen-section .qs-content {
+  order: 2;
+}
+
+.origen-section .qs-content p {
+  font-size: 19;
+}
+
+.origen-section .qs-image {
+  order: 1;
+}
+
+.origen-section .qs-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(45, 90, 39, 0.2);
+}
+
+.team-section {
+  display: block;
+  /* Cambiamos de grid a block para que ocupe todo el ancho */
+  padding: 60px 10%;
+  /* Mantenemos el respiro a los lados */
+  text-align: center;
+  /* Opcional: centra el título y el cuerpo para mejor estética */
+}
+
+.ts-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ts-content h2 {
+  color: var(--dark-green);
+  font-size: 42px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.ts-content p {
+  margin-bottom: 15px;
+  line-height: 1.8;
+  text-align: justify;
+  /* Mantiene el bloque de texto limpio */
+  color: var(--textcolor);
+  font-size: 19px;
+}
+
+
+/* ----------------------------Cards de Valores------------------------------------- */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 10% 80px 10%;
+}
+
+.valor-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.valor-card:hover {
+  transform: translateY(-5px);
+}
+
+.valor-card .number {
+  background: var(--acent-green);
+  font-weight: bold;
+  color: var(--dark-green);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+
+.valor-card h3 {
+  color: var(--dark-green);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.valor-card p {
+  font-size: 16px;
+  color: var(--textcolor);
+  line-height: 1.4;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quienes-somos {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/*TARJETAS MIEMBROS DE VITTALIUM*/
+.equipo-grid {
+  display: grid;
+  /* Crea 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 50px 10%;
+  background-color: var(--background);
+}
+
+.team-card {
+
+  background: white;
+  border-radius: 15px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(45, 90, 39, 0.1);
+}
+
+/*Ajustes del circulo de fotografía*/
+.team-img {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid var(--background);
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+.team-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.team-info h4 {
+  color: var(--dark-green);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.team-info p {
+  color: #666;
+  font-size: 19px;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--acent-green);
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--dark-green);
+  font-size: 19px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.linkedin-btn:hover {
+  background: var(--primary-green);
+  color: var(--background);
+}
+
+
+
+/*! Ajuste para que en tablets se vean 2 y en móviles 1 ---- */
+@media (max-width: 992px) {
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .equipo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/*! Normativas*/
+
+.normativas {
+  padding: 80px 70px;
+  text-align: center;
+}
+
+.normativas h2 {
+  font-size: 42px;
+  color: var(--dark-green);
+  margin-bottom: 20px;
+}
+
+.normativas-text {
+  font-size: 22px;
+  max-width: 850px;
+  margin: 0 auto 60px;
+  color: var(--textcolor);
+}
+
+/* Flexbox para permitir el centrado de la última fila */
+.normativas-cards {
+  display: flex;
+  flex-wrap: wrap;
+  /* Permite que las cards bajen a la siguiente fila */
+  gap: 35px;
+  justify-content: center;
+  /* ESTA ES LA CLAVE: centra las 3 de arriba y las 2 de abajo */
+  max-width: 1200px;
+  /* Ajusta según el ancho de tu contenedor */
+  margin: 0 auto;
+}
+
+.normativa-card {
+  background-color: white;
+  padding: 35px 25px;
+  border-radius: 14px;
+  /* Calculamos el ancho para que quepan 3 por fila restando el gap */
+  flex: 1 1 calc(33.333% - 35px);
+  max-width: 320px;
+  min-width: 280px;
+  /* Evita que se hagan demasiado flacas */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra el contenido interno (imagen, h3, p) */
+}
+
+.normativa-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Iconos */
+.normativa-card img {
+  width: 70px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Títulos más grandes */
+.normativa-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  margin-bottom: 14px;
+}
+
+/* Texto */
+.normativa-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--textcolor);
+}
+
+/* Responsive */
+
+/* Ajuste para tablets: 2 por fila */
+@media (max-width: 1024px) {
+  .normativa-card {
+    flex: 1 1 calc(50% - 35px);
+  }
+}
+
+/* Ajuste para móviles: 1 por fila */
+@media (max-width: 600px) {
+  .normativas {
+    padding: 60px 20px;
+  }
+
+  .normativa-card {
+    flex: 1 1 100%;
+  }
+}
+
+.normativas-cards {
+  grid-template-columns: 1fr;
+}
+
+/*! Footer*/
+
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    background-color:#2D5A27;
+    color: #fff;
+    padding: 50px 30px 0;
+    margin-top: 50px;
+}
+
+/* Estilos para las columnas */
+.footer-col h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #88887d;
+}
+
+/* Logo y descripción */
+.footer-logo {
+    height: 120px;
+    width: auto;
+    margin-bottom: 15px;
+}
+
+.footer-description {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ===== COPYRIGHT - TOTALMENTE CENTRADO ===== */
+.footer-bottom {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+    margin-top: 50px;
+    padding: 25px 0 30px;
+    border-top: 2px solid #77756e5b; /* Línea amarilla visible */
+    width: 100%;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column; /* Apila verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.footer-legal-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+    color: #ffc107;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+}
+
+
+@media (max-width: 992px) {
+    .footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 40px 20px 0;
+    }
+    
+    .footer-bottom {
+        margin-top: 40px;
+        padding: 20px 0 25px;
+    }
+    
+    .footer-legal-links {
+        gap: 10px;
+    }
+    
+    .footer-legal-links a {
+        font-size: 0.75rem;
+    }
+}
+
+/* ========================================
+   PÁGINA DE CONTACTO
+======================================== */
+
+/* Main container */
+.contacto-main {
+    min-height: 100vh;
+    background-color: var(--background);
+}
+
+/* Header de contacto */
+.contacto-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background-color: var(--background);
+}
+
+.contacto-header h1 {
+    font-size: 48px;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contacto-header p {
+    font-size: 18px;
+    color: var(--textcolor);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.contacto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Cards generales */
+.formulario-card,
+.info-contacto-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-card h2,
+.info-contacto-card h2 {
+    font-size: 24px;
+    color: var(--dark-green);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Formulario */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--textcolor);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: var(--font-global);
+    color: var(--textcolor);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(112, 173, 71, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Botón enviar */
+.btn-enviar {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(112, 173, 71, 0.3);
+}
+
+/* Información de contacto */
+.info-contacto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.telefono-icon {
+    background-color: rgba(112, 173, 71, 0.15);
+    color: var(--primary-green);
+}
+
+.email-icon {
+    background-color: rgba(112, 173, 71, 0.15);
+    color: var(--primary-green);
+}
+
+.ubicacion-icon {
+    background-color: rgba(112, 173, 71, 0.15);
+    color: var(--primary-green);
+}
+
+.horario-icon {
+    background-color: rgba(112, 173, 71, 0.15);
+    color: var(--primary-green);
+}
+
+.info-text h3 {
+    font-size: 18px;
+    color: var(--dark-green);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-text p {
+    font-size: 15px;
+    color: var(--textcolor);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Sección de ayuda inmediata */
+.ayuda-inmediata {
+    background-color: var(--dark-green);
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.ayuda-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.ayuda-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.ayuda-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: var(--acent-green);
+}
+
+.btn-llamar {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-llamar:hover {
+    background-color: var(--acent-green);
+    color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(169, 208, 142, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacto-header h1 {
+        font-size: 36px;
+    }
+
+    .contacto-header p {
+        font-size: 16px;
+    }
+
+    .formulario-card,
+    .info-contacto-card {
+        padding: 30px 20px;
+    }
+
+    .ayuda-content h2 {
+        font-size: 28px;
+    }
+
+    .ayuda-content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacto-header h1 {
+        font-size: 28px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-custom-green">
+    <div class="container">
+        <a href="../index.html" style="text-decoration: none;">
+            <div class="navbar-brand d-flex align-items-center">
+                <img src="./img/Logo solo.PNG" alt="Logo" width="70" height="80">
+                <span class="ms-2 fw-bold">Vittalium</span>
+            </div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item mx-1"><a class="nav-link btn btn-outline-custom-green px-3" href="./index.html">Inicio</a></li>
+                <li class="nav-item mx-1"><a class="nav-link btn btn-outline-custom-green px-3" href="./catalogo-producto.html">Productos</a></li>
+                <li class="nav-item mx-1"><a class="nav-link btn btn-outline-custom-green px-3" href="./nosotros.html">Nosotros</a></li>
+                <li class="nav-item mx-1"><a class="nav-link btn btn-outline-custom-green px-3" href="./contactanos.html">Contáctanos</a></li>
+                <li class="nav-item mx-1"><a class="nav-link btn btn-outline-custom-green px-3" href="#">Descubre lo que tu cuerpo necesita</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-2">
+                <div class="dropdown" id="userDropdown" style="display: none;">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user me-1"></i> <span class="navbar-usuario-nombre">Cuenta</span>
+                    </button>
+                </div>
+
+                <a href="./login.html" class="btn btn-outline-light btn-iniciar-sesion">
+                    <i class="fas fa-user me-1"></i>Iniciar Sesión
+                </a>
+
+                <div id="cartContainer" style="display: none;">
+                    <a href="../carrito.html" class="btn btn-outline-light position-relative">
+                        <i class="fas fa-shopping-cart me-1"></i>Carrito
+                        <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

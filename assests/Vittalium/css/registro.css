@@ -1,0 +1,462 @@
+/* ========================================
+   PÁGINA DE REGISTRO - CREAR CUENTA
+======================================== */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --verde-principal: #70AD47;
+    --verde-oscuro: #2D5A27;
+    --verde-claro: #A9D08E;
+    --gris-fondo: #f5f5f5;
+    --gris-borde: #e0e0e0;
+    --gris-texto: #6b7280;
+    --negro-texto: #2d3436;
+    --blanco: #ffffff;
+    --font-global: 'Inter', sans-serif;
+}
+
+/*Ajustes NavBar*/
+/*!NO MOVER*/
+#navbar-container, 
+#footer-container {
+    width: 100% !important;
+    flex-shrink: 0 !important; /* ESTO evita que desaparezcan al haber mucho contenido */
+    display: block;
+}
+
+#navbar-container {
+  min-height: 60px; /* Ajusta según el alto de tu logo */
+}
+
+html {
+    margin: 0;
+    padding: 0;
+  height: auto; /* Permite que el documento crezca */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+  min-height: 100vh; /* Altura mínima de la pantalla */
+    margin: 0;
+    padding: 0;
+  overflow-y: auto !important; /* FUERZA el scroll vertical */
+  overflow-x: hidden; /* Evita que se mueva hacia los lados */
+} /*!Terminan ajustes navbar*/
+
+body {
+    font-family: var(--font-global);
+    background-color: var(--gris-fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Contenedor principal */
+.registro-container {
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
+    
+}
+
+/* Card principal */
+.registro-card {
+    background-color: var(--blanco);
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+    margin: 30px 0;
+    align-self: center;
+
+}
+
+/* Header */
+.registro-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.registro-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--negro-texto);
+    margin-bottom: 8px;
+}
+
+.registro-header p {
+    font-size: 15px;
+    color: var(--gris-texto);
+    line-height: 1.5;
+}
+
+/* Formulario */
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Fila de formulario (nombre y apellido) */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Grupo de formulario */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--negro-texto);
+    margin-bottom: 8px;
+}
+
+/* Input wrapper con icono */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--gris-texto);
+    pointer-events: none;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    font-size: 15px;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 8px;
+    background-color: #f9fafb;
+    color: var(--negro-texto);
+    transition: all 0.2s ease;
+    font-family: var(--font-global);
+}
+
+.input-wrapper input::placeholder {
+    color: var(--gris-texto);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--verde-principal);
+    background-color: var(--blanco);
+    box-shadow: 0 0 0 3px rgba(112, 173, 71, 0.1);
+}
+
+/* Botón toggle password */
+.toggle-password {
+    position: absolute;
+    right: 14px;
+    background: none;
+    border: none;
+    color: var(--gris-texto);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+    color: var(--verde-principal);
+}
+
+/* Términos y condiciones */
+.terminos-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    padding-left: 28px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 18px;
+    width: 18px;
+    border: 2px solid var(--gris-borde);
+    border-radius: 4px;
+    background-color: var(--blanco);
+    transition: all 0.2s ease;
+}
+
+.checkbox-container:hover .checkmark {
+    border-color: var(--verde-principal);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--verde-principal);
+    border-color: var(--verde-principal);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-text {
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.5;
+}
+
+.link-terminos {
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.link-terminos:hover {
+    color: var(--verde-oscuro);
+    text-decoration: underline;
+}
+
+/* Botón crear cuenta */
+.btn-crear-cuenta {
+    width: 100%;
+    padding: 14px 24px;
+    background-color: var(--verde-principal);
+    color: var(--blanco);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 8px;
+}
+
+.btn-crear-cuenta:hover {
+    background-color: var(--verde-oscuro);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(112, 173, 71, 0.3);
+}
+
+.btn-crear-cuenta:active {
+    transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 28px 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--gris-borde);
+}
+
+.divider-text {
+    position: relative;
+    display: inline-block;
+    padding: 0 16px;
+    background-color: var(--blanco);
+    font-size: 13px;
+    color: var(--gris-texto);
+}
+
+/* Botones redes sociales */
+.social-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background-color: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--negro-texto);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: var(--gris-fondo);
+    border-color: var(--gris-texto);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-social svg {
+    flex-shrink: 0;
+}
+
+/* Link de inicio de sesión */
+.login-link {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.login-link span {
+    font-size: 14px;
+    color: var(--gris-texto);
+    margin-right: 6px;
+}
+
+.link-inicio-sesion {
+    font-size: 14px;
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.link-inicio-sesion:hover {
+    color: var(--verde-oscuro);
+    text-decoration: underline;
+}
+
+/* Footer del registro */
+.registro-footer {
+    text-align: center;
+}
+
+.link-inicio {
+    font-size: 14px;
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.link-inicio:hover {
+    color: var(--verde-oscuro);
+}
+
+/* Beneficios */
+.beneficios-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.beneficio-card {
+    background-color: var(--blanco);
+    padding: 24px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-4px);
+}
+
+.beneficio-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.beneficio-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--negro-texto);
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .registro-card {
+        padding: 32px 24px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .social-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficios-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .registro-header h1 {
+        font-size: 24px;
+    }
+
+    .registro-header p {
+        font-size: 14px;
+    }
+
+    .registro-card {
+        padding: 28px 20px;
+    }
+}

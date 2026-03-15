@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/productos.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    <title>Contáctanos - Vitalium</title>
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <header id="navbar-container"></header>
+
+    <!-- Sección de Contacto -->
+    <main class="contacto-main">
+        <!-- Encabezado -->
+        <section class="contacto-header">
+            <h1>Contáctanos</h1>
+            <p>¿Tienes alguna pregunta o comentario? Estamos aquí para ayudarte. Completa el formulario o contáctanos
+                directamente.</p>
+        </section>
+
+        <!-- Contenedor principal con formulario e info -->
+        <section class="contacto-container">
+            <!-- Formulario de contacto -->
+            <div class="formulario-card">
+                <h2>Envíanos un Mensaje</h2>
+
+                <form id="form-contacto" class="contacto-form">
+                    <!-- Nombre Completo -->
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+
+                    <!-- Asunto -->
+                    <div class="form-group">
+                        <label for="asunto">Asunto *</label>
+                        <input type="text" id="asunto" name="asunto" required>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+                </form>
+            </div>
+
+            <!-- Información de contacto -->
+            <div class="info-contacto-card">
+                <h2>Información de Contacto</h2>
+
+                <!-- Teléfono -->
+                <div class="info-item">
+                    <div class="info-icon telefono-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Teléfono</h3>
+                        <p>+1 (234) 567-890</p>
+                        <p>+1 (234) 567-891</p>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="info-item">
+                    <div class="info-icon email-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Email</h3>
+                        <p>info@vittalium.com</p>
+                        <p>ventas@vittalium.com</p>
+                    </div>
+                </div>
+
+                <!-- Dirección -->
+                <div class="info-item">
+                    <div class="info-icon ubicacion-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Dirección</h3>
+                        <p>Calle Principal 123</p>
+                        <p>Edificio Vittalium, Piso 5</p>
+                        <p>Ciudad, País 12345</p>
+                    </div>
+                </div>
+
+                <!-- Horario -->
+                <div class="info-item">
+                    <div class="info-icon horario-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="info-text">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                        <p>Sábados: 10:00 AM - 2:00 PM</p>
+                        <p>Domingos: Cerrado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de ayuda inmediata -->
+        <section class="ayuda-inmediata">
+            <div class="ayuda-content">
+                <h2>¿Necesitas Ayuda Inmediata?</h2>
+                <p>Nuestro equipo de soporte está disponible para responder tus preguntas y ayudarte con cualquier
+                    consulta.</p>
+                <button class="btn-llamar">Llámanos Ahora</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <script src="./js/navbar.js"></script>
+    <script src="./js/components.js"></script>
+    <script src="./js/contacto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/auth.js"></script>
+</body>
+
+</html>

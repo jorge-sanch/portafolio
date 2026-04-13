@@ -415,6 +415,19 @@ body {
     text-shadow: #0d6efd;
 }
 
+.fray-bartolom{
+    background-image: url("./assests/logos/Fray.png");
+    height: 200px;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 10px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    text-shadow: #0d6efd;
+}
+
 .project-info {
     padding: 20px;
     justify-content: left;

@@ -449,7 +449,94 @@ body {
 .project-actions {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
+/* =========================================
+   CERTIFICACIONES
+   ========================================= */
+
+   .certificaction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    gap: 30px;
+    justify-content: center;
+    
+}
+.certificaction-title{
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    color: var(--color-accent);
+    background-color: var(--color-secondary);
+}
+
+.certificaction-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.certificaction-image-placeholder {
+    height: 200px;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    
+    margin: 20px;
+}
+
+.generation{
+    background-image: url("./assests/certifications/generation.png");
+    height: 200px;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 10px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    text-shadow: #0d6efd;
+}
+
+.fray-bartolom{
+    background-image: url("./assests/logos/Fray.png");
+    height: 200px;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 10px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    text-shadow: #0d6efd;
+}
+
+.certificaction-info {
+    padding: 20px;
+    justify-content: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.certificaction-info h3 {
+    margin-bottom: 10px;
+}
+
+.certificaction-info p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.certificaction-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
 
 /* =========================================
    CONTACTO

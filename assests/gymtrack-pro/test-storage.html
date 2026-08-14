@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage Layer Test</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 { color: #333; }
+    .test-section {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-left: 4px solid #007bff;
+      border-radius: 4px;
+    }
+    .test-section h3 { margin-top: 0; color: #007bff; }
+    .pass { color: green; font-weight: bold; }
+    .fail { color: red; font-weight: bold; }
+    pre { 
+      background: #eee; 
+      padding: 10px; 
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Gym Progress Tracker - Storage Layer Test</h1>
+    <div id="results"></div>
+  </div>
+
+  <!-- Load utility functions first -->
+  <script src="js/utils.js"></script>
+  <!-- Load storage functions -->
+  <script src="js/storage.js"></script>
+
+  <script>
+    const resultsDiv = document.getElementById('results');
+    let passCount = 0;
+    let failCount = 0;
+
+    function log(title, result, details = '') {
+      const section = document.createElement('div');
+      section.className = 'test-section';
+      
+      const status = result ? '<span class="pass">✓ PASS</span>' : '<span class="fail">✗ FAIL</span>';
+      let html = `<h3>${title}</h3><p>${status}`;
+      
+      if (details) {
+        html += `<pre>${JSON.stringify(details, null, 2)}</pre>`;
+      }
+      html += '</p>';
+      
+      section.innerHTML = html;
+      resultsDiv.appendChild(section);
+      
+      if (result) passCount++;
+      else failCount++;
+    }
+
+    try {
+      // Test 1: Utils functions exist
+      log('Utils functions loaded', 
+        typeof generateId === 'function' && 
+        typeof formatDate === 'function' &&
+        typeof getToday === 'function' &&
+        typeof calculateVolume === 'function'
+      );
+
+      // Test 2: Storage functions exist
+      log('Storage functions loaded',
+        typeof loadData === 'function' &&
+        typeof saveData === 'function' &&
+        typeof addExercise === 'function' &&
+        typeof addMeal === 'function' &&
+        typeof addWater === 'function' &&
+        typeof addWeight === 'function'
+      );
+
+      // Test 3: Initialize storage
+      init();
+      const data = getData();
+      log('Data initialization',
+        data && 
+        data.user && 
+        data.exercises &&
+        data.meals &&
+        data.water &&
+        data.weights,
+        { 
+          user: data.user,
+          exerciseCount: data.exercises.length,
+          mealCount: data.meals.length,
+          waterCount: data.water.length,
+          weightCount: data.weights.length
+        }
+      );
+
+      // Test 4: User profile
+      log('User profile loaded',
+        data.user.objectives.length === 4 &&
+        data.user.currentWeight === 95 &&
+        data.user.goalWeight === 80,
+        data.user
+      );
+
+      // Test 5: Seed data validation
+      const hasSeedData = 
+        data.exercises.length >= 5 &&
+        data.meals.length >= 5 &&
+        data.water.length > 0 &&
+        data.weights.length >= 5;
+      log('Seed data populated', hasSeedData, {
+        exerciseCount: data.exercises.length,
+        mealCount: data.meals.length,
+        waterCount: data.water.length,
+        weightCount: data.weights.length
+      });
+
+      // Test 6: Add new exercise
+      const newExercise = addExercise({
+        name: 'Test Push-ups',
+        sets: 3,
+        reps: 15,
+        weight: 0,
+        date: getToday()
+      });
+      log('Add exercise',
+        newExercise && newExercise.id && newExercise.name === 'Test Push-ups' && newExercise.totalVolume === 45,
+        newExercise
+      );
+
+      // Test 7: Get exercises by date
+      const todayExercises = getExercisesByDate(getToday());
+      log('Get exercises by date',
+        Array.isArray(todayExercises) && todayExercises.length > 0,
+        { count: todayExercises.length, sample: todayExercises[0] }
+      );
+
+      // Test 8: Add meal
+      const newMeal = addMeal({
+        name: 'Test Meal',
+        calories: 500,
+        time: '14:00',
+        date: getToday()
+      });
+      log('Add meal',
+        newMeal && newMeal.id && newMeal.name === 'Test Meal',
+        newMeal
+      );
+
+      // Test 9: Add water
+      const newWater = addWater({
+        amount: 0.25,
+        date: getToday()
+      });
+      log('Add water',
+        newWater && newWater.id && newWater.amount === 0.25,
+        newWater
+      );
+
+      // Test 10: Add weight
+      const newWeight = addWeight({
+        weight: 94.5,
+        notes: 'Test entry',
+        date: getToday()
+      });
+      log('Add weight',
+        newWeight && newWeight.id && newWeight.weight === 94.5,
+        newWeight
+      );
+
+      // Test 11: Get today's summary
+      const todaySummary = getTodaySummary();
+      log('Get today summary',
+        todaySummary && 
+        todaySummary.exercises &&
+        todaySummary.meals &&
+        todaySummary.water &&
+        todaySummary.weight,
+        {
+          date: todaySummary.date,
+          exerciseCount: todaySummary.exercises.length,
+          mealCount: todaySummary.meals.length,
+          waterCount: todaySummary.water.length,
+          hasWeight: todaySummary.weight !== null
+        }
+      );
+
+      // Test 12: Validation functions
+      const validExercise = validateExercise({
+        name: 'Test',
+        reps: 10,
+        sets: 3,
+        weight: 50,
+        date: getToday()
+      });
+      log('Validate exercise (valid)',
+        validExercise.valid === true && validExercise.errors.length === 0,
+        validExercise
+      );
+
+      // Test 13: Invalid exercise validation
+      const invalidExercise = validateExercise({
+        name: '',
+        reps: 0,
+        sets: -5,
+        weight: 'abc',
+        date: ''
+      });
+      log('Validate exercise (invalid)',
+        invalidExercise.valid === false && invalidExercise.errors.length > 0,
+        invalidExercise
+      );
+
+      // Test 14: Date formatting
+      const today = getToday();
+      const formatted = formatDateDisplay(today);
+      log('Date formatting',
+        formatted === 'Today',
+        { raw: today, formatted: formatted }
+      );
+
+      // Test 15: Calculate daily stats
+      const dailyCalories = calculateDailyCalories(data.meals, getToday());
+      const dailyWater = calculateDailyWater(data.water, getToday());
+      log('Calculate daily stats',
+        dailyCalories > 0 && dailyWater > 0,
+        { dailyCalories, dailyWater: dailyWater + 'L' }
+      );
+
+      // Test 16: Weight trend
+      const trend = calculateWeightTrend(data.weights);
+      log('Calculate weight trend',
+        trend && trend.current && trend.trend !== undefined,
+        trend
+      );
+
+      // Summary
+      const summary = document.createElement('div');
+      summary.className = 'test-section';
+      summary.style.borderLeftColor = passCount > failCount ? 'green' : 'red';
+      summary.innerHTML = `
+        <h3>Test Summary</h3>
+        <p><strong>Total Tests:</strong> ${passCount + failCount}</p>
+        <p><strong class="pass">Passed: ${passCount}</strong></p>
+        <p><strong class="fail">Failed: ${failCount}</strong></p>
+        <p><strong>Result:</strong> ${passCount === passCount + failCount ? '✓ All tests passed!' : '✗ Some tests failed'}</p>
+      `;
+      resultsDiv.appendChild(summary);
+
+    } catch (error) {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'test-section';
+      errorDiv.style.borderLeftColor = 'red';
+      errorDiv.innerHTML = `
+        <h3 class="fail">Error Occurred</h3>
+        <pre>${error.message}\n\n${error.stack}</pre>
+      `;
+      resultsDiv.appendChild(errorDiv);
+    }
+  </script>
+</body>
+</html>

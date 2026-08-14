@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenamiento - GymTrack Pro</title>
+  <link rel="stylesheet" href="./css/exercises.css">
+</head>
+<!-- Asegúrate de que el body tenga esto -->
+<body data-page="ejercicios">
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <h1>Entrenamiento</h1>
+        <span class="subtitle">GYMTRACK PRO</span>
+      </div>
+      <div class="avatar">J</div>
+    </header>
+
+    <!-- Top Filters (¡CORREGIDO!) -->
+    <section class="filters-grid">
+      <div class="form-group">
+        <label for="fecha">FECHA</label>
+        <!-- Cambiamos type="text" y readonly por type="date" para activar el calendario -->
+        <input type="date" id="fecha" class="input-field">
+      </div>
+      <div class="form-group">
+        <label for="historial">HISTORIAL</label>
+        <div class="select-wrapper">
+          <select id="historial" class="input-field select-field">
+            <!-- Las opciones se generarán solas con JS -->
+          </select>
+          <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agregar Ejercicio Card ... (el resto queda igual) -->
+
+    <!-- Agregar Ejercicio Card -->
+    <section class="card add-exercise-card">
+      <span class="card-section-title">AGREGAR EJERCICIO</span>
+      
+      <div class="add-exercise-form">
+        <div class="select-wrapper group-select">
+          <select class="input-field select-field" id="grupo-muscular-select">
+            <option value="" disabled selected>Grupo muscular</option>
+            <option value="pecho">Pecho</option>
+            <option value="espalda">Espalda</option>
+            <option value="hombros">Hombros</option>
+            <option value="biceps">Bíceps</option>
+            <option value="triceps">Tríceps</option>
+            <option value="pierna">Pierna</option>
+            <option value="gluteos">Glúteos</option>
+            <option value="abdomen">Abdomen</option>
+            <option value="cardio">Cardio</option>
+            <option value="otros">Otros</option>
+          </select>
+          <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+
+        <input type="text" class="input-field exercise-input" placeholder="Nombre del ejercicio (ej. Sentadilla)">
+
+        <button class="btn-square-add" aria-label="Agregar ejercicio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Ejercicio 1: Press Banca -->
+    <section class="card exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-title-group">
+          <span class="exercise-num">1</span>
+          <h2 class="exercise-name">Press banca</h2>
+          <span class="series-count">3 series</span>
+        </div>
+        <div class="exercise-actions">
+          <button class="icon-btn" aria-label="Eliminar ejercicio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+          <button class="icon-btn" aria-label="Colapsar ejercicio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 15l-6-6-6 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="series-container">
+        <!-- Table Header -->
+        <div class="series-row header-row">
+          <span class="col-num">#</span>
+          <span class="col-label">REPETICIONES</span>
+          <span class="col-label">PESO (KG)</span>
+          <span class="col-action"></span>
+        </div>
+
+        <!-- Serie 1 -->
+        <div class="series-row">
+          <span class="col-num num-active">1</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Serie 2 -->
+        <div class="series-row">
+          <span class="col-num num-active">2</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Serie 3 -->
+        <div class="series-row">
+          <span class="col-num num-active">3</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn-text-add">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Agregar serie
+      </button>
+    </section>
+
+    <!-- Ejercicio 2: Dominadas con agarre suprino -->
+    <section class="card exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-title-group">
+          <span class="exercise-num">2</span>
+          <h2 class="exercise-name">dominadas con agarre suprino</h2>
+          <span class="series-count">3 series</span>
+        </div>
+        <div class="exercise-actions">
+          <button class="icon-btn" aria-label="Eliminar ejercicio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+          <button class="icon-btn" aria-label="Colapsar ejercicio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 15l-6-6-6 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="series-container">
+        <!-- Table Header -->
+        <div class="series-row header-row">
+          <span class="col-num">#</span>
+          <span class="col-label">REPETICIONES</span>
+          <span class="col-label">PESO (KG)</span>
+          <span class="col-action"></span>
+        </div>
+
+        <!-- Serie 1 -->
+        <div class="series-row">
+          <span class="col-num num-active">1</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Serie 2 -->
+        <div class="series-row">
+          <span class="col-num num-active">2</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Serie 3 -->
+        <div class="series-row">
+          <span class="col-num num-active">3</span>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="12">
+          </div>
+          <div class="col-input">
+            <input type="number" class="input-field input-center" value="60">
+          </div>
+          <button class="icon-btn col-action" aria-label="Eliminar serie">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn-text-add">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Agregar serie
+      </button>
+    </section>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span>Inicio</span>
+      </a>
+
+      <a href="#" class="nav-item active">
+        <div class="nav-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0">
+            <path fill="currentColor" d="m19.4 9.375l-.688-.688l.904-.948l-3.354-3.354l-.948.904l-.714-.714l1.612-1.661l4.85 4.85zM2.989 16.212L4.6 14.6l.714.714l-.91.903l3.379 3.38l.903-.91l.714.713l-1.611 1.612zm15.163-2.635l2.002-2.002l-7.729-7.729l-2.002 2.002zm-6.577 6.577l2.021-2.027l-7.723-7.723l-2.027 2.021zm-.265-5.715l3.134-3.13l-1.753-1.753l-3.13 3.135zm3.713 3.707l-3.448 3.41l-9.13-9.131l3.409-3.448l2.994 3l3.135-3.135l-2.981-2.994l3.442-3.442l9.15 9.15l-3.442 3.442l-2.994-2.98l-3.135 3.134z"></path>
+          </svg>
+        </div>
+        <span>Ejercicios</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.25 2.75v7a3 3 0 0 0 3 3h1m4-10v7a3 3 0 0 1-3 3h-1m0-10v10m0 0v8.5m13.5 0v-6.5m0 0V3.286a.536.536 0 0 0-.536-.536a4.464 4.464 0 0 0-4.464 4.464v5.536a2 2 0 0 0 2 2z"></path>
+        </svg>
+        <span>Dieta</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0">
+          <path fill="currentColor" d="M3 20v-1h8.5V7.94q-.708-.129-1.25-.642T9.56 6H6.116L9 13.212q-.058 1-.929 1.702T6 15.616t-2.071-.702T3 13.212L5.885 6H4V5h5.56q.165-.836.834-1.418T12 3t1.606.582T14.44 5H20v1h-1.884L21 13.212q-.058 1-.929 1.702T18 15.616t-2.071-.702T15 13.212L17.884 6h-3.443q-.149.785-.691 1.298t-1.25.643V19H21v1zm12.99-6.884h4.02L18 8.092zm-12 0h4.02L6 8.092zM12 7q.617 0 1.059-.441q.441-.442.441-1.059t-.441-1.059Q12.617 4 12 4t-1.059.441T10.5 5.5t.441 1.059Q11.383 7 12 7"></path>
+        </svg>
+        <span>Peso</span>
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><circle cx="12" cy="7" r="3"></circle>
+        </svg>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</body>
+</html>

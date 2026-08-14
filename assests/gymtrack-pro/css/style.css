@@ -1,0 +1,357 @@
+/* Variables y Configuración Global */
+:root {
+  --bg-main: #0c0d12;
+  --bg-card: #151821;
+  --bg-input: #1a1e29;
+  --border-color: #232733;
+  --accent-lime: #ccff00;
+  --accent-orange: #f97316;
+  --accent-cyan: #38bdf8;
+  --badge-bg: #2d3b0f;
+  --text-primary: #ffffff;
+  --text-muted: #8b93a7;
+  --text-dimmed: #525a6c;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+/* Container Principal */
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand h1 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.brand .subtitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent-lime);
+  letter-spacing: 0.5px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent-lime);
+  color: #000;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.current-date {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.welcome-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Cards Base */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+/* Week Card */
+.week-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.week-days-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.day-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.day-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--bg-input);
+}
+
+.day-circle.active-circle {
+  background-color: transparent;
+  border: 2px solid var(--accent-lime);
+}
+
+.week-summary {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Stats Grid (2x2) */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 108px;
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-orange { color: var(--accent-orange); }
+.icon-cyan { color: var(--accent-cyan); }
+.icon-lime { color: var(--accent-lime); }
+
+.card-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.stat-dash {
+  width: 20px;
+  height: 4px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  margin: 14px 0 6px 0;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 4px 0 0 0;
+}
+
+.card-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Actions List */
+.actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-card {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.action-card:hover {
+  opacity: 0.92;
+}
+
+.action-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* High-visibility Lime CTA */
+.cta-lime {
+  background-color: var(--accent-lime);
+  color: #000000;
+}
+
+.cta-lime .action-icon,
+.cta-lime .arrow-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #000000;
+}
+
+.cta-lime .action-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cta-lime .action-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Secondary Dark CTA Card */
+.action-dark {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.action-dark .action-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.action-dark .arrow-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+}
+
+.action-dark .action-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.action-dark .action-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-item.active {
+  color: var(--accent-lime);
+}
+
+.nav-icon-box {
+  background-color: var(--badge-bg);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-box svg {
+  color: var(--accent-lime);
+}
+
+/* Responsivo para celulares compactos */
+@media (max-width: 480px) {
+  .day-circle {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .welcome-title {
+    font-size: 22px;
+  }
+}
+
+.day-item.active {
+  color: var(--accent-lime);
+}

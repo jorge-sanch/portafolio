@@ -1,0 +1,267 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0f12;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Barlow', sans-serif;
+}
+
+.container {
+    width: 1097px;
+    background-color: #0d0f12;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px 20px 0 20px;
+    min-height: 764px;
+}
+
+/* Volver */
+.top-row {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #7a8494;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: default;
+}
+
+.back-link .icon-wrapper {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-link img {
+    width: 4px;
+    height: 8px;
+}
+
+/* Formulario */
+.form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 24px 24px 24px 24px;
+}
+
+.form-card {
+    width: 384px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* Títulos */
+.header-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-bottom: 28px;
+}
+
+.header-text h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 32px;
+    color: #f0f2f5;
+    margin: 0;
+}
+
+.header-text p {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7a8494;
+    margin: 0;
+}
+
+/* Grupo de campos */
+.fields-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 16px;
+}
+
+.field label {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #7a8494;
+    margin-bottom: 6px;
+}
+
+.input-box {
+    width: 100%;
+    min-height: 46px;
+    background-color: #1e232c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input-box span {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #7a8494;
+    width: 100%;
+    text-align: left;
+}
+
+/* Campo contraseña con ícono */
+.password-field .password-wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.password-field .input-box {
+    padding-right: 44px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+.eye-icon img:first-child {
+    width: 13.33px;
+    height: 9.33px;
+}
+
+.eye-icon img:last-child {
+    width: 4px;
+    height: 4px;
+}
+
+/* Objetivos */
+.objectives .options-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.objectives .option {
+    min-height: 42px;
+    background-color: #1e232c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7a8494;
+    cursor: default;
+}
+
+/* Botón */
+.btn-primary {
+    width: 100%;
+    background-color: #c8ff00;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 0;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #0d0f12;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-height: 48px;
+}
+
+.btn-primary:hover {
+    background-color: #b0e600;
+}
+
+/* Enlace login */
+.login-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 28px;
+    padding-bottom: 28px;
+}
+
+.login-link span {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7a8494;
+}
+
+.login-link a {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #c8ff00;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

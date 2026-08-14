@@ -1,0 +1,409 @@
+/* Variables y Configuración Global */
+:root {
+  --bg-main: #0c0d12;
+  --bg-card: #151821;
+  --bg-input: #1a1e29;
+  --border-color: #232733;
+  --accent-lime: #ccff00;
+  --badge-bg: #2d3b0f;
+  --text-primary: #ffffff;
+  --text-muted: #8b93a7;
+  --text-dimmed: #525a6c;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+/* Container Principal */
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand h1 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.brand .subtitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent-lime);
+  letter-spacing: 0.5px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent-lime);
+  color: #000;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Base Cards */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+/* Filters Grid */
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Form inputs & Labels */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-field {
+  width: 100%;
+  height: 48px;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 0 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-field::placeholder {
+  color: var(--text-dimmed);
+}
+
+.input-field:focus {
+  border-color: var(--accent-lime);
+}
+
+.input-center {
+  text-align: center;
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-field {
+  appearance: none;
+  cursor: pointer;
+}
+
+.chevron-icon {
+  position: absolute;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Agregar Ejercicio Card */
+.add-exercise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.add-exercise-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.group-select {
+  width: 170px;
+  flex-shrink: 0;
+}
+
+.exercise-input {
+  flex: 1;
+}
+
+.btn-square-add {
+  width: 48px;
+  height: 48px;
+  background-color: var(--accent-lime);
+  color: #000;
+  border: none;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-square-add:hover {
+  opacity: 0.9;
+}
+
+.btn-square-add svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Exercise Cards */
+.exercise-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exercise-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-lime);
+}
+
+.exercise-name {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.exercise-name::first-letter {
+  text-transform: uppercase;
+}
+
+.series-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.exercise-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Table Grid for Series */
+.series-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.series-row {
+  display: grid;
+  grid-template-columns: 24px 1fr 1fr 28px;
+  gap: 12px;
+  align-items: center;
+}
+
+.header-row {
+  margin-bottom: 2px;
+}
+
+.col-num {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.num-active {
+  color: var(--accent-lime);
+}
+
+.col-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.col-action {
+  justify-self: center;
+}
+
+/* Botón de texto "+ Agregar serie" */
+.btn-text-add {
+  background: transparent;
+  border: none;
+  color: var(--accent-lime);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 4px 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-text-add:hover {
+  opacity: 0.8;
+}
+
+.btn-text-add svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Icon Buttons */
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.icon-btn:hover {
+  color: var(--text-primary);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-item.active {
+  color: var(--accent-lime);
+}
+
+.nav-icon-box {
+  background-color: var(--badge-bg);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-box svg {
+  color: var(--accent-lime);
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 580px) {
+  .add-exercise-form {
+    flex-wrap: wrap;
+  }
+
+  .group-select {
+    width: 100%;
+  }
+
+  .exercise-input {
+    width: calc(100% - 60px);
+  }
+
+  .series-row {
+    gap: 8px;
+    grid-template-columns: 18px 1fr 1fr 24px;
+  }
+}
